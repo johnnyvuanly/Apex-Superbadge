@@ -1,3 +1,5 @@
+/* This trigger adds a follow up task record if an opportunity stage is closed 
+won and is inserted or updated */
 trigger ClosedOpportunityTrigger on Opportunity (after insert, after update) {
     
     List<Task> taskList = new List<Task>();
