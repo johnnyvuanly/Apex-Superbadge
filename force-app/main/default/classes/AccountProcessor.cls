@@ -9,5 +9,14 @@ public without sharing class AccountProcessor {
         // Query for account recordsand pull related contacts with the sub query. Notice plural of contacts in sub query
         List<Account> accounts = [SELECT Id, (SELECT Id FROM Contacts) FROM Account WHERE Id IN :accountIds];
 
+        // Iterate over returned list of accounts 
+        for (Account acc : accounts) {
+            // Make field equal to the number of Contacts related to the Account. acc.Contacts gives you a list of records 
+            acc.Number_of_Contacts__c = acc.Contacts.size();
+        }
+
+        // Throw it back into the database
+        update accounts;
+        
     }
 }
