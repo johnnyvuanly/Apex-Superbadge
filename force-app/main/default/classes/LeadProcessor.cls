@@ -17,7 +17,7 @@ public without sharing class LeadProcessor implements Database.Batchable<SObject
         update leads;
     }
 
-
+    // Review, finish methods execute post processing like sending an email once after all batches are processed
     public void finish(Database.BatchableContext dbc) {
         System.debug('Done');
     }
