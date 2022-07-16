@@ -30,4 +30,3 @@ public class UpdateParentAccountTest {
         System.assertEquals(100, [select count() from account where parentId = :parentId]);
     }
 }
-
